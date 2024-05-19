@@ -7,9 +7,17 @@
 ░░╚██╔╝░░░░░██║░░░╚════╝██║░░░██║██║╚████║██║░░██║██║░░░██║██╔══██║
 ░░░██║░░░░░░██║░░░░░░░░░╚██████╔╝██║░╚███║██████╔╝╚██████╔╝██║░░██║
 ░░░╚═╝░░░░░░╚═╝░░░░░░░░░░╚═════╝░╚═╝░░╚══╝╚═════╝░░╚═════╝░╚═╝░░╚═╝
+
+#### defksipsi
 tools unduh video atau audio dari video youtube dengan menyali url video,
 kemudian pilh frame video berdasarkan yang tersedia
 ### yang di butuhkan
 *PIP*
 -  pytube
 -  colorama
+
+### jalankan
+```
+cd unduh-YT
+python3 main.py
+```
