@@ -1,8 +1,8 @@
 # unduh YT
 
-░█──░█ ▀▀█▀▀ ── █──█ █▀▀▄ █▀▀▄ █──█ █──█ 
-░█▄▄▄█ ─░█── ▀▀ █──█ █──█ █──█ █──█ █▀▀█ 
-──░█── ─░█── ── ─▀▀▀ ▀──▀ ▀▀▀─ ─▀▀▀ ▀──▀
+
+█▄█ ▀█▀ ▄▄ █░█ █▄░█ █▀▄ █░█ █░█
+░█░ ░█░ ░░ █▄█ █░▀█ █▄▀ █▄█ █▀█
 
 ### informasi
 - mulai.py -> untuk termux hp
@@ -14,10 +14,12 @@ kemudian pilh frame video berdasarkan yang tersedia
 *python3*
 *PIP*
 -  pytube
+unduh labrary manual
 ```
 https://pypi.org/project/pytube/7.0.16/
 ```
 -  colorama
+unduh labrary manual
 ```
 https://pypi.org/project/colorama/
 ```
