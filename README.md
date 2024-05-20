@@ -8,6 +8,7 @@
 ### jalankan
 ```
 cd unduh-YT
+pip install -r instal.txt
 python3 main.py
 python3 mulai.py
 ```
@@ -17,6 +18,15 @@ kemudian pilh frame video berdasarkan yang tersedia
 ### yang di butuhkan
 *python3*
 *PIP* :
+jika ingin isntal pip manual
+```
+pip install pytube
+pip install colorama
+pip install moviepy
+pip install os
+```
+jika inggin unduh file manual di bawah ini kemudian masukkan ke folder `unduh-YT`
+
 -  `pytube`
 
 unduh labrary manual
