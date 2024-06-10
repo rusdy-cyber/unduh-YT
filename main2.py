@@ -6,7 +6,7 @@ def on_progress(stream, chunk, bytes_remaining):
     total_size = stream.filesize
     bytes_downloaded = total_size - bytes_remaining
     percentage = (bytes_downloaded / total_size) * 100
-    print(f"Proses unduh: {percentage:.2f}% selesai", end="\r")
+    print(f"[ * ] =======>>>> Proses unduh: {percentage:.2f}% bentar", end="\r")
 
 def download_youtube_video():
     print(Fore.GREEN + """
@@ -18,22 +18,16 @@ def download_youtube_video():
 ░░░╚═╝░░░░░░╚═╝░░░░░░░░░░╚═════╝░╚═╝░░╚══╝╚═════╝░░╚═════╝░╚═╝░░╚═╝
 """)
     while True:
-        # Meminta pengguna untuk memasukkan URL playlist YouTube
-        playlist_url = input("Masukkan URL playlist: ")
+        playlist_url = input("[ $ ] =======>>>> Masukkan URL playlist: ")
         try:
-            # Buat objek Playlist dari URL
             playlist = Playlist(playlist_url)
-
-            # Menampilkan daftar judul semua video dalam playlist
-            print("Daftar Video dalam Playlist:")
+            print("==>>>> Daftar Video dalam Playlist:")
             for i, video_url in enumerate(playlist.video_urls):
                 yt = YouTube(video_url)
                 print(f"{i+1}. {yt.title}")
-
-            # Meminta pengguna untuk memilih video dalam playlist (bisa lebih dari satu)
             selected_videos_indices = []
             while True:
-                video_choice = input("Masukkan nomor video (kosongkan untuk selesai): ").strip()
+                video_choice = input("---------------------------------------------------\n==>>>> Masukkan nomor video (kosongkan untuk selesai)\n[ $ ] ==>>>> ketikkan: ").strip()
                 if not video_choice:
                     break
                 try:
@@ -41,27 +35,25 @@ def download_youtube_video():
                     if 0 <= choice < len(playlist.video_urls):
                         selected_videos_indices.append(choice)
                     else:
-                        print(f"Nomor video {video_choice} tidak valid.")
+                        print(f"[ ! ] =======>>>> Nomor video {video_choice} tidak valid.")
                 except ValueError:
-                    print(f"Input '{video_choice}' tidak valid.")
-
+                    print(f"[ ! ] =======>>>> Input '{video_choice}' tidak valid.")
             while True:
-                # Meminta pengguna untuk memilih format unduhan
-                format_choice = input("Pilih format unduhan (video/audio) atau ketik 'kembali' untuk mengubah URL playlist: ").strip().lower()
-                if format_choice == 'kembali':
+                format_choice = input("---------------------------------------------------\n==>>>> Pilih format unduhan (video/audio)\nketik [v] => untuk video\nketik [a] => untuk audio\nketik [k] => untuk mengubah URL playlist\n---------------------------------------------------\n[ $ ] ==>>>> ketikkan: ").strip().lower()
+                if format_choice == 'k':
                     break
-                if format_choice in ['video', 'audio']:
-                    if format_choice == 'video':
+                if format_choice in ['v', 'a']:
+                    if format_choice == 'v':
                         yt_example = YouTube(playlist.video_urls[selected_videos_indices[0]])
                         streams = yt_example.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc()
-                        print("Pilihan resolusi yang tersedia:")
+                        print("--------------------------------------------------------\n==>>>> Pilihan resolusi yang tersedia:")
                         for i, stream in enumerate(streams):
                             print(f"{i + 1}. {stream.resolution} - {stream.mime_type}")
 
                         while True:
                             try:
-                                resolution_choice = input("Pilih resolusi (masukkan nomor pilihan) atau ketik 'kembali' untuk memilih format lagi: ").strip().lower()
-                                if resolution_choice == 'kembali':
+                                resolution_choice = input("==>>>> Pilih resolusi (masukkan nomor pilihan) atau ketik 'k' untuk memilih format lagi\n--------------------------------------------------------\n[ $ ] =======>>>> ketikkan: ").strip().lower()
+                                if resolution_choice == 'k':
                                     break
                                 resolution_choice = int(resolution_choice) - 1
                                 if 0 <= resolution_choice < len(streams):
@@ -76,16 +68,16 @@ def download_youtube_video():
                                             output_path = playlist_folder
                                             selected_stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc()[resolution_choice]
                                             selected_stream.download(output_path)
-                                            print(f"\nVideo '{yt.title}' dengan resolusi {selected_stream.resolution} telah berhasil diunduh ke '{output_path}'")
+                                            print(f"\n==>>>> Video '{yt.title}' dengan resolusi {selected_stream.resolution} telah berhasil diunduh ke '{output_path}'")
                                         except Exception as e:
-                                            print(f"Gagal mengunduh video dari URL: {video_url}")
-                                            print(f"Kesalahan: {e}")
+                                            print(f"[ ! ] =======>>>> Gagal mengunduh video dari URL: {video_url}")
+                                            print(f"[ ! ] =======>>>> Kesalahan: {e}")
                                     break
                                 else:
-                                    print("Pilihan tidak ada bro. Silakan coba lagi.")
+                                    print("[ ! ] =======>>>> Pilihan tidak ada bro. Silakan coba lagi.")
                             except ValueError:
-                                print("Input tidak valid. Silakan masukkan nomor yang sesuai.")
-                    elif format_choice == 'audio':
+                                print("[ ! ] =======>>>> Input tidak valid. Silakan masukkan nomor yang sesuai.")
+                    elif format_choice == 'a':
                         for index in selected_videos_indices:
                             video_url = playlist.video_urls[index]
                             try:
@@ -99,15 +91,15 @@ def download_youtube_video():
                                 base, ext = os.path.splitext(out_file)
                                 new_file = base + '.mp3'
                                 os.rename(out_file, new_file)
-                                print(f"\nAudio '{yt.title}' telah berhasil diunduh dan disimpan sebagai MP3 di '{new_file}'")
+                                print(f"\n==>>>> Audio '{yt.title}' telah berhasil diunduh dan disimpan sebagai MP3 di '{new_file}'")
                             except Exception as e:
-                                print(f"Gagal mengunduh video dari URL: {video_url}")
-                                print(f"Kesalahan: {e}")
+                                print(f"[ ! ] =======>>>> Gagal mengunduh video dari URL: {video_url}")
+                                print(f"[ ! ] =======>>>> Kesalahan: {e}")
                     break
                 else:
-                    print("Format pilihan tidak valid. Pilih 'video' atau 'audio'.")
+                    print("[ ! ] =======>>>> Format pilihan tidak valid. Pilih 'video' atau 'audio'.")
         except Exception as e:
-            print(f"Terjadi kesalahan: {e}")
+            print(f"[ ! ] =======>>>> Terjadi kesalahan: {e}")
 
 # Panggil fungsi untuk memulai proses pengunduhan
 download_youtube_video()
