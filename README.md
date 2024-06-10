@@ -1,5 +1,5 @@
 # unduh YT
- ``` unduh YT merupakan tool yang di kemangkan oleh author rudi untuk mempermudah pengguna youtube untuk menyimpan video yng di inginkan ke dekrektori local, program ini di rancang sedemikian rupa dengan logika pemograman AI (artificial intelligence) agar pengguna dapat merasakan penggunaan yang lebih optimal ``` 
+ ``` unduh YT merupakan tool yang di kembangkan oleh author rudi untuk mempermudah pengguna youtube untuk menyimpan video yng di inginkan ke dekrektori local, program ini di rancang sedemikian rupa dengan logika pemograman AI (artificial intelligence) agar pengguna dapat merasakan penggunaan yang lebih optimal ``` 
 # 𝖄𝕿-𝖚𝖓𝖉𝖚𝖍
 
 ### author
