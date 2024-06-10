@@ -3,14 +3,14 @@
 # 𝖄𝕿-𝖚𝖓𝖉𝖚𝖍
 
 ### informasi
-- main.py -> untuk termux hp
-- run.py -> untuk laptop
+- main1.py -> untuk unduh video tunggal
+- main2.py -> untuk unduh video playlist
 ### jalankan
 ```
 cd unduh-YT
 pip install -r instal.txt
-python3 main.py
-python3 run.py
+python3 main1.py
+python3 main2.py
 ```
 #### defksipsi
 tools unduh video atau audio dari video youtube dengan menyali url video,
