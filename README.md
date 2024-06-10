@@ -14,9 +14,9 @@ pip install -r instal.txt
 python3 main1.py
 python3 main2.py
 ```
-#### defksipsi
-tools unduh video atau audio dari video youtube dengan menyali url video,
-kemudian pilh frame video berdasarkan yang tersedia
+#### dokumentasi
+
+<img src="https://github.com/rusdy-cyber/rusdy-cyber/blob/main/img/rimuru%20hd.png" width="300px">
 ### yang di butuhkan
 *python3*
 *PIP* :
