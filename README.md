@@ -17,11 +17,11 @@ python3 main2.py
 #### dokumentasi
 *main1.py->link tunggal*
 
-<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main1.py.png" width="100px">
+<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main1.py.png" width="300px">
 
 *main2.py->link playlist*
 
-<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main2.py.png" width="100px">
+<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main2.py.png" width="300px">
 
 ### yang di butuhkan
 *python3*
