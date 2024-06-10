@@ -21,7 +21,7 @@ python3 main2.py
 
 *main2.py->link playlist*
 
-<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main2.py.png" width="300px">
+<img src="https://github.com/rusdy-cyber/unduh-YT/blob/main/img/main2.py.png" width="500px">
 
 ### yang di butuhkan
 *python3*
