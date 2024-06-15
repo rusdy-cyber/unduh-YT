@@ -6,7 +6,7 @@ def on_progress(stream, chunk, bytes_remaining):
     total_size = stream.filesize
     bytes_downloaded = total_size - bytes_remaining
     percentage = (bytes_downloaded / total_size) * 100
-    print(f"[ * ] =======>>>> Proses unduh: {percentage:.2f}% bentar", end="\r")
+    print(Fore.GREEN +f"[ * ] ==>>>> Proses unduh: {percentage:.2f}% bentar", end="\r")
 
 def download_youtube_video():
     print(Fore.GREEN + """
@@ -18,7 +18,7 @@ def download_youtube_video():
 ░░░╚═╝░░░░░░╚═╝░░░░░░░░░░╚═════╝░╚═╝░░╚══╝╚═════╝░░╚═════╝░╚═╝░░╚═╝
 """)
     while True:
-        playlist_url = input("[ $ ] =======>>>> Masukkan URL playlist: ")
+        playlist_url = input(Fore.LIGHTBLACK_EX +"linux㉿root)\n|=# Masukkan URL playlist: ")
         try:
             playlist = Playlist(playlist_url)
             print("==>>>> Daftar Video dalam Playlist:")
@@ -27,7 +27,7 @@ def download_youtube_video():
                 print(f"{i+1}. {yt.title}")
             selected_videos_indices = []
             while True:
-                video_choice = input("---------------------------------------------------\n==>>>> Masukkan nomor video (kosongkan untuk selesai)\n[ $ ] ==>>>> ketikkan: ").strip()
+                video_choice = input(Fore.LIGHTBLACK_EX +"---------------------------------------------------\n==>>>> Masukkan nomor video (kosongkan untuk selesai)\nlinux㉿root)\n|=# ketikkan: ").strip()
                 if not video_choice:
                     break
                 try:
@@ -35,11 +35,11 @@ def download_youtube_video():
                     if 0 <= choice < len(playlist.video_urls):
                         selected_videos_indices.append(choice)
                     else:
-                        print(f"[ ! ] =======>>>> Nomor video {video_choice} tidak valid.")
+                        print(Fore.RED + f"[ ! ] ==>>>> Nomor video {video_choice} tidak valid.")
                 except ValueError:
-                    print(f"[ ! ] =======>>>> Input '{video_choice}' tidak valid.")
+                    print(Fore.RED + f"[ ! ] ==>>>> Input '{video_choice}' tidak valid.")
             while True:
-                format_choice = input("---------------------------------------------------\n==>>>> Pilih format unduhan (video/audio)\nketik [v] => untuk video\nketik [a] => untuk audio\nketik [k] => untuk mengubah URL playlist\n---------------------------------------------------\n[ $ ] ==>>>> ketikkan: ").strip().lower()
+                format_choice = input(Fore.LIGHTBLACK_EX + "---------------------------------------------------\n==>>>> Pilih format unduhan (video/audio)\nketik [v] => untuk video\nketik [a] => untuk audio\nketik [k] => untuk mengubah URL playlist\n---------------------------------------------------\n(linux㉿root)\n|=# ketikkan: ").strip().lower()
                 if format_choice == 'k':
                     break
                 if format_choice in ['v', 'a']:
@@ -52,7 +52,7 @@ def download_youtube_video():
 
                         while True:
                             try:
-                                resolution_choice = input("==>>>> Pilih resolusi (masukkan nomor pilihan) atau ketik 'k' untuk memilih format lagi\n--------------------------------------------------------\n[ $ ] =======>>>> ketikkan: ").strip().lower()
+                                resolution_choice = input("==>>>> Pilih resolusi (masukkan nomor pilihan) atau ketik 'k' untuk memilih format lagi\n--------------------------------------------------------\nlinux㉿root)\n|=# ketikkan: ").strip().lower()
                                 if resolution_choice == 'k':
                                     break
                                 resolution_choice = int(resolution_choice) - 1
@@ -70,13 +70,13 @@ def download_youtube_video():
                                             selected_stream.download(output_path)
                                             print(f"\n==>>>> Video '{yt.title}' dengan resolusi {selected_stream.resolution} telah berhasil diunduh ke '{output_path}'")
                                         except Exception as e:
-                                            print(f"[ ! ] =======>>>> Gagal mengunduh video dari URL: {video_url}")
-                                            print(f"[ ! ] =======>>>> Kesalahan: {e}")
+                                            print(Fore.RED + f"[ ! ] ==>>>> Gagal mengunduh video dari URL: {video_url}")
+                                            print(Fore.RED + f"[ ! ] ==>>>> Kesalahan: {e}")
                                     break
                                 else:
-                                    print("[ ! ] =======>>>> Pilihan tidak ada bro. Silakan coba lagi.")
+                                    print(Fore.RED + "[ ! ] ==>>>> Pilihan tidak ada bro. Silakan coba lagi.")
                             except ValueError:
-                                print("[ ! ] =======>>>> Input tidak valid. Silakan masukkan nomor yang sesuai.")
+                                print(Fore.RED + "[ ! ] ==>>>> Input tidak valid. Silakan masukkan nomor yang sesuai.")
                     elif format_choice == 'a':
                         for index in selected_videos_indices:
                             video_url = playlist.video_urls[index]
@@ -93,13 +93,13 @@ def download_youtube_video():
                                 os.rename(out_file, new_file)
                                 print(f"\n==>>>> Audio '{yt.title}' telah berhasil diunduh dan disimpan sebagai MP3 di '{new_file}'")
                             except Exception as e:
-                                print(f"[ ! ] =======>>>> Gagal mengunduh video dari URL: {video_url}")
-                                print(f"[ ! ] =======>>>> Kesalahan: {e}")
+                                print(Fore.RED + f"[ ! ] ==>>>> Gagal mengunduh video dari URL: {video_url}")
+                                print(Fore.RED + f"[ ! ] ==>>>> Kesalahan: {e}")
                     break
                 else:
-                    print("[ ! ] =======>>>> Format pilihan tidak valid. Pilih 'video' atau 'audio'.")
+                    print(Fore.RED + "[ ! ] ==>>>> Format pilihan tidak valid. Pilih 'video' atau 'audio'.")
         except Exception as e:
-            print(f"[ ! ] =======>>>> Terjadi kesalahan: {e}")
+            print(Fore.RED + f"[ ! ] ==>>>> Terjadi kesalahan: {e}")
 
 # Panggil fungsi untuk memulai proses pengunduhan
 download_youtube_video()
